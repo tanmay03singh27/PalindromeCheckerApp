@@ -1,59 +1,58 @@
-import java.util.Deque;
-import java.util.ArrayDeque;
+import java.util.LinkedList;
 
 /**
  * ===============================================================
- * MAIN CLASS - UseCase7PalindromeCheckerApp
+ * MAIN CLASS - UseCase8PalindromeCheckerApp
  * ===============================================================
  *
- * Use Case 7: Deque Based Optimized Palindrome Checker
+ * Use Case 8: Linked List Based Palindrome Checker
  *
  * Description:
- * This class validates a palindrome using a Deque
- * (Double Ended Queue).
+ * This class checks whether a string is a palindrome
+ * using a LinkedList.
  *
- * Characters are inserted into the deque and then
- * compared by removing elements from both ends:
+ * Characters are added to the list and then compared
+ * by removing elements from both ends:
  *
  * - removeFirst()
  * - removeLast()
  *
- * This avoids reversing the string and provides an
- * efficient front-to-back comparison approach.
+ * This demonstrates how LinkedList supports
+ * double-ended operations for symmetric validation.
  *
  * @author Developer
- * @version 7.0
+ * @version 8.0
  */
 
-public class UseCase7PalindromeCheckerApp {
+public class UseCase8PalindromeCheckerApp {
 
     /**
-     * Application entry point for UC7.
+     * Application entry point for UC8.
      *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
 
-        // Define input string
-        String input = "refer";
+        // Define the input string
+        String input = "level";
 
-        // Create Deque
-        Deque<Character> deque = new ArrayDeque<>();
+        // Create LinkedList
+        LinkedList<Character> list = new LinkedList<>();
 
-        // Add characters into deque
+        // Add characters into the list
         for (char c : input.toCharArray()) {
-            deque.addLast(c);
+            list.add(c);
         }
 
         boolean isPalindrome = true;
 
-        // Compare front and rear characters
-        while (deque.size() > 1) {
+        // Compare elements from both ends
+        while (list.size() > 1) {
 
-            char front = deque.removeFirst();
-            char rear = deque.removeLast();
+            char first = list.removeFirst();
+            char last = list.removeLast();
 
-            if (front != rear) {
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
